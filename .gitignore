@@ -1,1 +1,7 @@
 .dotfiles.git/
+.Xauthority
+.cache/
+.lesshst
+.viminfo
+.geometry_upgrade
+.zcompdump
