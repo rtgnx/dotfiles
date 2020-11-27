@@ -5,3 +5,5 @@
 .viminfo
 .geometry_upgrade
 .zcompdump
+.fzf/
+.fzf.zsh
