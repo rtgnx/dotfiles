@@ -9,3 +9,4 @@
 .fzf.zsh
 .config/zsh
 .gnupg/
+.local/share/
