@@ -7,3 +7,5 @@
 .zcompdump
 .fzf/
 .fzf.zsh
+.config/zsh
+.gnupg/
