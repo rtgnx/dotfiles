@@ -1,0 +1,54 @@
+# Set PATH, MANPATH, etc., for Homebrew.
+[ -f "/opt/homebrew/bin/brew" ] && eval "$(/opt/homebrew/bin/brew shellenv)"
+[ -f "/opt/homebrew/bin/starship" ] && source <(/opt/homebrew/bin/starship init zsh --print-full-init)
+
+# Add tab completion for many Bash commands
+if which brew &> /dev/null && [ -r "$(brew --prefix)/etc/profile.d/bash_completion.sh" ]; then
+	# Ensure existing Homebrew v1 completions continue to work
+	export BASH_COMPLETION_COMPAT_DIR="$(brew --prefix)/etc/bash_completion.d";
+	source "$(brew --prefix)/etc/profile.d/bash_completion.sh";
+elif [ -f /etc/bash_completion ]; then
+	source /etc/bash_completion;
+fi;
+
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
+
+
+[ -f "$(command -v starship)" ] && source <(starship init bash --print-full-init)
+
+if [ -f "$(command -v vim)" ]; then
+  export EDITOR="vim"
+fi
+
+if [ -f "$(command -v nvim)" ]; then
+  export EDITOR="nvim"
+fi
+
+export USER_BIN="$HOME/.local/bin"
+export GOPATH="$HOME/src/go"
+export GOBIN="$GOPATH/bin"
+
+export PATH="$GOBIN:$USER_BIN:$PATH"
+
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
+
+# ls
+alias ll="ls -lrth --color=auto"
+alias l="ll"
+
+# grep
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# git
+alias gc="git commit -v"
+
+
+# ifconfig
+alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'"
+
+# fs
+alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
+alias reload="exec ${SHELL} -l"
+alias paths='echo -e ${PATH//:/\\n}'
