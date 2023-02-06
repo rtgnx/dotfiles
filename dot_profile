@@ -11,10 +11,10 @@ elif [ -f /etc/bash_completion ]; then
 	source /etc/bash_completion;
 fi;
 
-[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
+#[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
 
 
-[ -f "$(command -v starship)" ] && source <(starship init bash --print-full-init)
+#[ -f "$(command -v starship)" ] && [ "$SHELL" == "BASH" ] &&  source <(starship init bash --print-full-init)
 
 if [ -f "$(command -v vim)" ]; then
   export EDITOR="vim"
@@ -52,3 +52,5 @@ alias ifactive="ifconfig | pcregrep -M -o '^[^\t:]+:([^\n]|\n\t)*status: active'
 alias cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 alias reload="exec ${SHELL} -l"
 alias paths='echo -e ${PATH//:/\\n}'
+
+alias vim="$EDITOR"
