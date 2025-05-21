@@ -1,0 +1,152 @@
+# Get editor completions based on the config schema
+"$schema" = 'https://starship.rs/config-schema.json'
+
+# Inserts a blank line between shell prompts
+add_newline = true
+
+# Prompt format
+format = """
+[╭─](bold blue)$username$hostname$directory$git_branch$git_status
+[╰─](bold green)$character
+"""
+
+# Right prompt (if supported by your shell)
+right_format = """$time"""
+
+# Character module
+[character]
+success_symbol = "[❯](bold green)"
+error_symbol = "[❯](bold red)"
+vicmd_symbol = "[❮](bold yellow)"
+
+# Time module
+[time]
+disabled = false
+format = "[$time]($style) "
+time_format = "%T"
+style = "bold yellow"
+
+# Username module
+[username]
+style_user = "green bold"
+style_root = "red bold"
+format = "[$user]($style) "
+show_always = true
+
+# Hostname module
+[hostname]
+ssh_only = false
+format = "on [$hostname](bold yellow) "
+
+# Directory module
+[directory]
+truncation_length = 3
+truncate_to_repo = false
+style = "cyan bold"
+
+# Git branch module
+[git_branch]
+symbol = " "
+truncation_length = 4
+truncation_symbol = "…"
+style = "purple bold"
+
+# Git status module
+[git_status]
+conflicted = "⚠️ "
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+up_to_date = "✓ "
+untracked = "?${count} "
+stashed = "📦 "
+modified = "!${count} "
+staged = "+${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+style = "red bold"
+
+# AWS module
+[aws]
+format = "on [$symbol$profile]($style) "
+style = "bold blue"
+symbol = "  "
+[aws.profile_aliases]
+default = "def"
+
+# Azure module
+[azure]
+format = "on [$symbol($subscription)]($style) "
+symbol = "󰠅 "
+style = "blue bold"
+
+
+# Battery module
+[battery]
+full_symbol = "🔋"
+charging_symbol = "⚡️"
+discharging_symbol = "🔌"
+[[battery.display]]
+threshold = 10
+style = "bold red"
+
+# Programming languages modules
+[python]
+format = "via [🐍 $version]($style) "
+style = "yellow bold"
+
+[nodejs]
+format = "via [ $version]($style) "
+style = "green bold"
+
+[rust]
+format = "via [⚙️ $version]($style) "
+style = "red bold"
+
+[golang]
+format = "via [🐹 $version]($style) "
+style = "cyan bold"
+
+[php]
+format = "via [🐘 $version]($style) "
+style = "blue bold"
+
+[ruby]
+format = "via [💎 $version]($style) "
+style = "magenta bold"
+
+# Docker context module
+[docker_context]
+format = "via [🐳 $context]($style) "
+style = "blue bold"
+
+# Package module
+[package]
+format = "via [📦 $version]($style) "
+style = "208 bold"
+
+# Memory usage module
+[memory_usage]
+disabled = false
+threshold = -1
+symbol = " "
+style = "bold dimmed green"
+
+# Local IP module
+[localip]
+ssh_only = false
+format = "[@$localipv4]($style) "
+style = "bold red"
+disabled = false
+
+# Env var module
+[env_var.SHELL]
+variable = "SHELL"
+default = "unknown shell"
+format = "[$env_value]($style) "
+style = "bold yellow"
+
+# Fill module (for separators)
+[fill]
+symbol = "-"
+style = "bold green"
