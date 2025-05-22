@@ -1,5 +1,7 @@
 # vim: ft=sh
-#
+
+cd $HOME/.dotfiles && git pull; cd $HOME
+
 # Set environment variables
 export $(grep -v '^#' "$HOME/.env" | xargs)
 alias $(grep -v '^#' "$HOME/.aliases" | xargs)
@@ -13,3 +15,11 @@ if [ -f "$(command -v eza)" ]; then
   alias ll="eza -lrh"
   alias la="eza -larh"
 fi
+
+
+if [ -f "$(command -v vsv)" ]; then
+  alias vsv="sudo vsv"
+fi
+
+
+ufetch
