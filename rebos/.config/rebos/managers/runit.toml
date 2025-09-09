@@ -1,0 +1,27 @@
+# --------------------------- #
+#    Manager Configuration    #
+# --------------------------- #
+
+# Make sure to enter the exact command you use as the normal user!
+# That means including 'sudo' or 'doas' or whatever if the command needs it.
+# Where you would put items, enter '#:?'.
+
+# Example: add = "sudo apt install #:?"
+
+add = "sudo ln -sf /etc/sv/#:? /etc/runit/runsvdir/default/#:?" # Example: sudo apt install #:?
+remove = "sudo rm /etc/runit/runsvdir/default/#:?" # Example: sudo apt remove #:?
+sync = "" # Example: sudo apt update
+upgrade = "" # Example: sudo apt upgrade
+
+plural_name = "system services"
+
+hook_name = "system_services" # This is used in hooks. (Example: post_system_packages_add)
+
+# ------------------------------- #
+#    Additional configuration.    #
+# ------------------------------- #
+
+# many_args = BOOL: Can you supply many items as an argument? Example: 'sudo apt install git vim wget'
+
+[config]
+many_args = false

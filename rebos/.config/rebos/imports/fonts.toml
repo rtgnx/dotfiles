@@ -1,0 +1,19 @@
+[managers.system]
+items = [
+  "xorg-fonts",
+  "nerd-fonts",
+  "nerd-fonts-ttf",
+  "nerd-fonts-otf",
+  "nerd-fonts-symbols-ttf",
+  "noto-fonts-cjk",
+  "noto-fonts-emoji",
+  "noto-fonts-ttf",
+  "xlsfonts",
+  "xfontsel",
+  "font-adobe-100dpi",
+  "font-adobe-75dpi",
+  "dejavu-fonts-ttf",
+  "fonts-roboto-ttf",
+  "freefont-ttf"
+]
+

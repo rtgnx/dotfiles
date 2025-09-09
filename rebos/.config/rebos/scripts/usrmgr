@@ -1,0 +1,91 @@
+#!/bin/sh
+
+cmd="$1"
+arg="$2"
+
+add_user() {
+    username=$(echo "$1" | cut -d: -f1)
+    uid=$(echo "$1" | cut -d: -f2)
+    gid=$(echo "$1" | cut -d: -f3)
+    comment=$(echo "$1" | cut -d: -f4)
+    home=$(echo "$1" | cut -d: -f5)
+    shell=$(echo "$1" | cut -d: -f6)
+
+    if id "$username" >/dev/null 2>&1; then
+        echo "User $username exists, updating..."
+        usermod -u "$uid" -g "$gid" -c "$comment" -d "$home" -s "$shell" "$username"
+    else
+        echo "Adding user $username..."
+        useradd -u "$uid" -g "$gid" -c "$comment" -d "$home" -s "$shell" -m "$username"
+    fi
+}
+
+del_user() {
+    username=$(echo "$1" | cut -d: -f1)
+    if id "$username" >/dev/null 2>&1; then
+        echo "Deleting user $username..."
+        userdel -r "$username"
+    else
+        echo "User $username not found"
+    fi
+}
+
+add_group() {
+    group=$(echo "$1" | cut -d: -f1)
+    gid=$(echo "$1" | cut -d: -f2)
+
+    if getent group "$group" >/dev/null 2>&1; then
+        echo "Group $group exists, updating..."
+        groupmod -g "$gid" "$group"
+    else
+        echo "Adding group $group..."
+        groupadd -g "$gid" "$group"
+    fi
+}
+
+del_group() {
+    group=$(echo "$1" | cut -d: -f1)
+    if getent group "$group" >/dev/null 2>&1; then
+        echo "Deleting group $group..."
+        groupdel "$group"
+    else
+        echo "Group $group not found"
+    fi
+}
+
+add_member() {
+    group=$(echo "$1" | cut -d: -f1)
+    user=$(echo "$1" | cut -d: -f2)
+
+    if id "$user" >/dev/null 2>&1 && getent group "$group" >/dev/null 2>&1; then
+        echo "Adding $user to $group..."
+        gpasswd -a "$user" "$group" >/dev/null
+    else
+        echo "Either group $group or user $user does not exist"
+    fi
+}
+
+del_member() {
+    group=$(echo "$1" | cut -d: -f1)
+    user=$(echo "$1" | cut -d: -f2)
+
+    if id "$user" >/dev/null 2>&1 && getent group "$group" >/dev/null 2>&1; then
+        echo "Removing $user from $group..."
+        gpasswd -d "$user" "$group" >/dev/null
+    else
+        echo "Either group $group or user $user does not exist"
+    fi
+}
+
+case "$cmd" in
+    add_user) add_user "$arg" ;;
+    del_user) del_user "$arg" ;;
+    add_group) add_group "$arg" ;;
+    del_group) del_group "$arg" ;;
+    add_member) add_member "$arg" ;;
+    del_member) del_member "$arg" ;;
+    *)
+        echo "Unknown command: $cmd"
+        exit 1
+        ;;
+esac

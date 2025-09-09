@@ -1,0 +1,29 @@
+# --------------------- #
+#    Generation File    #
+# --------------------- #
+
+# Other generation files to import. (Example: intensive_apps -> ~/.config/rebos/imports/intensive_apps.toml)
+imports = [
+  "crypto",
+  "network",
+  "desktop",
+  "tools",
+  "fonts",
+  "audio",
+  "desktop",
+  "dev",
+  "qemu",
+  "apps",
+]
+
+# Packages to be installed via the native package manager.
+[managers.system]
+items = [
+    "linux-firmware-amd",
+    "ROCm-SMI",
+    "ROCm-SMI-devel"
+]
+[managers.runit]
+items = [
+  "iptables"
+]

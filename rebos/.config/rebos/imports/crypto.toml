@@ -1,0 +1,7 @@
+[managers.system]
+items = [
+  "age-plugin-yubikey",
+  "pam_yubico",
+  "yubikey-manager",
+  "gnupg2-scdaemon"
+]

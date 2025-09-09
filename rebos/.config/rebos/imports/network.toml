@@ -1,0 +1,9 @@
+[managers.system]
+items = [
+  "tailscale"
+]
+
+[managers.runit]
+items = [
+  "tailscaled"
+]

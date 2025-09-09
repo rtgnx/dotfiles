@@ -1,0 +1,9 @@
+begin = [
+  "group",
+  "user",
+  "system",
+]
+
+end = [
+  "runit"
+]

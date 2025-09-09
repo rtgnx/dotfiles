@@ -1,0 +1,11 @@
+
+[managers.system]
+items = [
+  "neovim",
+  "python3-neovim",
+  "go",
+  "docker",
+]
+
+[managers.runit]
+items = ["docker"]

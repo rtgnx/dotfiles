@@ -1,0 +1,7 @@
+
+[managers.system]
+items = [ 
+  "vsv", "xtools", "pass", "nfs-utils",
+  "starship", "eza", "jq", "mosh"
+]
+

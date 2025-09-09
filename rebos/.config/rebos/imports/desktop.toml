@@ -1,0 +1,59 @@
+[managers.system]
+items = [
+  "xorg",
+  "xorg-apps",
+  "xorg-fonts",
+  "xorg-input-drivers",
+  "xorg-server",
+  "xorg-video-drivers",
+  "xorgproto",
+  "xf86-video-amdgpu",
+
+  "mesa",
+  "mesa-dri",
+  "mesa-vaapi",
+  "mesa-vdpau",
+  "mesa-opencl",
+  "mesa-vulkan-radeon",
+
+  "xdg-dbus-proxy",
+  "xdg-desktop-portal",
+  "xdg-user-dirs",
+  "xdg-utils",
+  "xclip",
+  "xclipboard",
+
+
+  "wayland",
+  "wayland-protocols",
+  "wayland-devel",
+
+  "elogind",
+  "dbus-elogind",
+  "polkit-elogind",
+
+
+  "sway",
+  "wezterm",
+  "wezterm-terminfo",
+  "wofi",
+  "SwayNotificationCenter",
+  "Waybar",
+
+  "Thunar",
+  "thunar-archive-plugin",
+  "thunar-media-tags-plugin",
+  "thunar-volman",
+
+  "gvfs",
+  "gvfs-afc",
+  "gvfs-afp",
+  "gvfs-cdda",
+  "gvfs-gphoto2",
+  "gvfs-mtp",
+  "gvfs-smb",
+  "swaylock",
+
+]
+[managers.runit]
+items = [ "elogind" ]

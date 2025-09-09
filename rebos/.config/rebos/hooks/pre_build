@@ -1,0 +1,7 @@
+#!/bin/sh
+export TZ="Europe/London"
+
+
+sudo ln -sf "/usr/share/zoneinfo/${TZ:-Europe/London}" /etc/localtime
+chmod +x ./scripts/usrmgr
+sudo cp ./scripts/usrmgr /usr/local/bin/usrmgr

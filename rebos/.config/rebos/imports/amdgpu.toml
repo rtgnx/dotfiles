@@ -1,0 +1,5 @@
+[managers.system]
+items = [
+  "ROCm-SMI",
+  "ROCm-SMI-devel",
+]

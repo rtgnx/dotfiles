@@ -1,0 +1,12 @@
+[managers.system]
+items = [
+  "alsa-oss",
+  "alsa-tools",
+  "alsa-utils",
+  "alsa-plugins-pulseaudio",
+  "pavucontrol",
+  "pipewire",
+  "alsa-pipewire",
+  "wireplumber",
+  "wireplumber-elogind",
+]

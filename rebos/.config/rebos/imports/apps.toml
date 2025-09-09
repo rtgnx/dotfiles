@@ -1,0 +1,24 @@
+[managers.system]
+items = [
+  "firefox",
+  "ufetch",
+
+  "zathura",
+  "zathura-djvu",
+  "zathura-pdf-mupdf",
+  "zathura-ps",
+  "btop",
+  "pandoc",
+  "pandoc-crossref",
+  "pandoc-sidenote",
+  "python3-pandocfilters",
+  "python3-pypandoc",
+  "texlive",
+  "texlive-BibTeX",
+  "texlive-LuaTeX",
+  "texlive-full",
+  "texlive-latexmk",
+  "texlive-science",
+  "texlive2025-bin",
+
+]

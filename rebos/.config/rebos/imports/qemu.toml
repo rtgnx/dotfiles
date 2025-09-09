@@ -1,0 +1,16 @@
+[managers.system]
+items = [
+  "edk2-ovmf",
+  "qemu",
+  "qemu-img",
+  "qemu-system-amd64",
+  "libvirt",
+  "virt-manager",
+]
+
+[managers.runit]
+items = [
+  "libvirtd",
+  "virtlogd",
+  "virtlockd",
+]
