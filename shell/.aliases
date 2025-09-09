@@ -1,2 +1,4 @@
 # vim: ft=sh
-vim="$EDITOR"
+alias vim="$EDITOR"
+alias gss="git status"
+alias gs="git status --short"
