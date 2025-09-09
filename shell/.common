@@ -4,10 +4,17 @@ cd $HOME/.dotfiles && git pull; cd $HOME
 
 # Set environment variables
 export $(grep -v '^#' "$HOME/.env" | xargs)
-alias $(grep -v '^#' "$HOME/.aliases" | xargs)
-
+[ -f "$HOME/.aliases" ] && source $HOME/.aliases
 [ -f "$(command -v starship)" ] && eval "$(starship init $(basename $SHELL))"
 
+
+# Start ssh-agent if not running
+if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+    eval "$(ssh-agent -s)"
+fi
+
+# Add key if not already added
+ssh-add -l >/dev/null 2>&1 || ssh-add ~/.ssh/vault
 
 
 if [ -f "$(command -v eza)" ]; then
